@@ -6,40 +6,58 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/03 17:00:03 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/04 20:48:40 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
+#include "so_long.h"
+#include <stdio.h>
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int	make_background(t_graphic win, void *img_file)
 {
-	char	*dst;
+	int	i;
+	int	j;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	i = 0;
+	while (i < 640 / 8)
+	{
+		j = 0;
+		while (j < 480 / 8)
+		{
+			mlx_put_image_to_window(win.mlx, win.win, img_file, i * 8, j * 8);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+void	*make_image(t_graphic win, char *r_path)
+{
+	t_image	*img_ptr;
+	void	*img_file;
+
+	img_ptr = (t_image *)malloc(sizeof(t_image));
+	img_ptr->relative_path = r_path;
+	img_ptr->img = mlx_xpm_file_to_image(win.mlx, BACKGROUND, &img_ptr->w, &img_ptr->h);
+	return (img_ptr->img);
+}
+
+int	check_map(void)
+{
+	return (0);
 }
 
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	t_graphic	graphic;
+	void		*background_img;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	graphic.mlx = mlx_init();
+	graphic.win = mlx_new_window(graphic.mlx, 640, 480, "SO_LONG");
+	background_img = make_image(graphic, "grass.png");
+	make_background(graphic, background_img);
+	mlx_key_hook(graphic.win, my_key_hook, &graphic);
+	mlx_loop(graphic.mlx);
+	return (0);
 }

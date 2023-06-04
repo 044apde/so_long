@@ -1,6 +1,9 @@
 {
 	"files.associations": {
 		"mlx.h": "c",
-		"*.a": "c"
+		"*.a": "c",
+		"cstdlib": "c",
+		"locale": "c",
+		"so_long.h": "c"
 	}
 }
