@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/04 20:48:40 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/05 17:55:56 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,16 @@ int	check_map(void)
 	return (0);
 }
 
-int	main(void)
+int	make_map(void)
+{
+	return (0);
+}
+
+int	main(int ac, char **av)
 {
 	t_graphic	graphic;
 	void		*background_img;
-
+	
 	graphic.mlx = mlx_init();
 	graphic.win = mlx_new_window(graphic.mlx, 640, 480, "SO_LONG");
 	background_img = make_image(graphic, "grass.png");
