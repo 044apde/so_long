@@ -28,6 +28,7 @@ clean:
 # 실행 파일 및 라이브러리 모두 삭제
 fclean: clean
 	$(MAKE) -C mlx clean
+	$(MAKE) -C gnl clean
 	rm -f $(LIBRARY)
 
 # 전체 빌드 과정 삭제

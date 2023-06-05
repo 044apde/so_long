@@ -6,12 +6,11 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/05 17:55:56 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/05 23:11:13 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 int	make_background(t_graphic win, void *img_file)
 {
@@ -43,8 +42,26 @@ void	*make_image(t_graphic win, char *r_path)
 	return (img_ptr->img);
 }
 
-int	check_map(void)
-{
+int	check_map()
+{	
+	int		fd;
+	int		width;
+	int		height;
+	char	*string;
+
+	printf("Check map started...\n");
+	fd = open("map.txt", O_RDONLY);
+	height = 1;
+	width = 0;
+	while (TRUE)
+	{
+		string = get_next_line(fd);
+		width = ft_stlen(string);
+		if (string == NULL)
+			break;
+		height++;
+	}
+	printf("H:%d\n", height);
 	return (0);
 }
 
@@ -53,11 +70,12 @@ int	make_map(void)
 	return (0);
 }
 
-int	main(int ac, char **av)
+int	main(void)
 {
 	t_graphic	graphic;
 	void		*background_img;
 	
+	check_map();
 	graphic.mlx = mlx_init();
 	graphic.win = mlx_new_window(graphic.mlx, 640, 480, "SO_LONG");
 	background_img = make_image(graphic, "grass.png");

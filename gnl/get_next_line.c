@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 14:57:01 by marvin            #+#    #+#             */
-/*   Updated: 2023/04/22 22:06:21 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/05 21:42:08 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
 	buffer = (char *)malloc(BUFFER_SIZE + 1);
-	if (buffer == NULL)
+	if (buffer == NULL && remain != NULL)
 		return (free_remain(&remain));
 	line = read_file(fd, &remain, buffer, 1);
 	free (buffer);
