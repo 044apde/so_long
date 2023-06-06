@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/06 16:46:04 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/06 20:23:42 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <string.h>
-#include <errno.h>
+# include <errno.h>
 
 # define TRUE 1
 # define BG "grass.xpm"
@@ -39,14 +39,15 @@ typedef struct img_pack {
 	int		h;
 }	t_image;
 
-typedef struct map_info {
+typedef struct map_box {
 	int		width;
 	int		height;
-	char	*map;
+	char	**map;
 }	t_map;
 
+void 	exit_program();
 void	exit_hook(int exit_value);
 int		my_key_hook(int keycode);
+int		open_map(char *map_path);
 size_t	ft_maplen(const char *s);
-
 #endif

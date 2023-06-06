@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:08:14 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/06 15:49:03 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/06 20:15:21 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,23 @@ size_t	ft_maplen(const char *s)
 	while (s[length] != 0 && s[length] != '\n')
 		++length;
 	return (length);
+}
+
+int	open_map(char *map_path)
+{
+	int	fd;
+
+	fd = open(map_path, O_RDONLY);
+	if (fd == -1)
+	{
+		ft_printf("Error! fail to open map_file.\n");
+		exit(1);
+	}
+	return (fd);
+}
+
+void exit_program()
+{
+	ft_printf("Error! fail to malloc.\n");
+	exit(1);
 }
