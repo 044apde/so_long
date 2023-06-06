@@ -6,7 +6,7 @@ CFLAGS =
 LDFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 # 라이브러리 및 실행 파일 이름
-LIBRARY = mlx/libmlx.a gnl/libgnl.a
+LIBRARY = mlx/libmlx.a gnl/libgnl.a libft/libft.a ft_printf/libftprintf.a
 EXECUTABLE = so_long
 
 # 기본 타겟 (all) 설정
@@ -20,6 +20,8 @@ $(EXECUTABLE): $(LIBRARY) so_long.c so_long_utils.c
 $(LIBRARY):
 	$(MAKE) -C mlx
 	$(MAKE) -C gnl
+	$(MAKE) -C libft
+	$(MAKE) -C ft_printf
 
 # 메이크 파일을 실행하여 생성된 파일 및 라이브러리 삭제
 clean:
@@ -29,6 +31,8 @@ clean:
 fclean: clean
 	$(MAKE) -C mlx clean
 	$(MAKE) -C gnl clean
+	$(MAKE) -C libft clean
+	$(MAKE) -C ft_printf clean
 	rm -f $(LIBRARY)
 
 # 전체 빌드 과정 삭제
