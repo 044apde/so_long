@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:28:35 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 11:43:47 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 11:50:05 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,8 @@ void	check_component(t_map *mapbox)
 
 void	check_wall(t_map *map_box)
 {
-	
+}
+
+void	check_path_to_end(t_map *mapbox)
+{
 }

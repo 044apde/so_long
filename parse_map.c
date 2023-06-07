@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:34:59 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 11:36:27 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 11:49:08 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,9 @@ void	set_mapbox_map(t_map *mapbox, char *map_path)
 		if (mapbox->map[h] == NULL)
 			exit_program();
 	}
+}
+
+void	check_mapname(char *map_name)
+{
+	
 }
