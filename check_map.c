@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:28:35 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 16:07:46 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 16:45:17 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,3 @@ void	check_map_surround(t_map *mapbox)
 	}
 }
 
-void	check_path_to_end(t_map *mapbox)
-{
-}

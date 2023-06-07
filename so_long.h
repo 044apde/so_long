@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 13:06:13 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 21:28:20 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "ft_printf/ft_printf.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include <string.h>
 # include <errno.h>
@@ -27,25 +26,45 @@
 # define TRUE 1
 # define BG "grass.xpm"
 
-typedef struct win_pack {
+typedef struct s_win_pack {
 	void	*mlx;
 	void	*win;
 }		t_graphic;
 
-typedef struct img_pack {
+typedef struct s_img_pack {
 	void	*img;
 	char	*relative_path;
 	int		w;
 	int		h;
 }	t_image;
 
-typedef struct map_box {
-	int		width;
-	int		height;
-	int		flag_e;
-	int		flag_p;
-	int		flag_c;
-	char	**map;
+typedef struct s_map_coordinate {
+	int	x;
+	int	y;
+}	t_coordinate;
+
+typedef struct s_player_position {
+	int	x;
+	int	y;
+} t_position;
+
+typedef struct s_queue {
+	t_position	**p_position;
+	int			front;
+	int			rear;
+} t_queue;
+
+typedef struct s_map_box {
+	int				width;
+	int				height;
+	int				flag_e;
+	int				flag_p;
+	int				flag_c;
+	int				p_x;
+	int				p_y;
+	int				e_x;
+	int				e_y;
+	char			**map;
 }	t_map;
 
 void	exit_program(void);
@@ -54,10 +73,11 @@ void	check_component(t_map *mapbox);
 void	set_map_length(t_map *mapbox, char *map_path);
 void	set_mapbox_size(t_map *mapbox, char *map_path);
 void	set_mapbox_map(t_map *mapbox, char *map_path);
+void	set_mapbox_point(t_map *mapbox);
 void	check_map_surround(t_map *mapbox);
 void	check_reptition(t_map *mapbox);
-void	check_path_to_end(t_map *mapbox);
 void	check_mapname(char *map_name);
+void	find_path(t_map *mapbox);
 int		my_key_hook(int keycode);
 int		open_map(char *map_path);
 size_t	ft_maplen(const char *s);

@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:34:59 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 16:08:04 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 16:52:00 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	set_mapbox_size(t_map *mapbox, char *map_path)
 		ft_printf("Error! map file is empty.\n");
 		exit(1);
 	}
+	close(fd);
 }
 
 void	set_mapbox_map(t_map *mapbox, char *map_path)
@@ -72,6 +73,7 @@ void	set_mapbox_map(t_map *mapbox, char *map_path)
 		if (mapbox->map[h] == NULL)
 			exit_program();
 	}
+	close(fd);
 }
 
 void	check_mapname(char *map_name)
@@ -98,5 +100,30 @@ void	check_mapname(char *map_name)
 	{
 		ft_printf("Error! invalid extension name. Use '.ber'\n");
 		exit(1);
+	}
+}
+
+void	set_mapbox_point(t_map *mapbox)
+{
+	int		h;
+	int		w;
+
+	h = -1;
+	while (++h < mapbox->height)
+	{
+		w = -1;
+		while (++w < mapbox->width)
+		{
+			if (mapbox->map[h][w] == 'E')
+			{
+				mapbox->e_x = w + 1;
+				mapbox->e_y = h + 1;
+			}
+			if (mapbox->map[h][w] == 'P')
+			{
+				mapbox->p_x = w + 1;
+				mapbox->p_y = h + 1;
+			}
+		}
 	}
 }
