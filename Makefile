@@ -9,12 +9,15 @@ LDFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 LIBRARY = mlx/libmlx.a gnl/libgnl.a libft/libft.a ft_printf/libftprintf.a
 EXECUTABLE = so_long
 
+# 컴파일 소스
+SOURCE = so_long.c so_long_utils.c check_map.c parse_map.c
+
 # 기본 타겟 (all) 설정
 all: $(EXECUTABLE)
 
 # 실행 파일 생성 타겟
-$(EXECUTABLE): $(LIBRARY) so_long.c so_long_utils.c
-	$(CC) $(CFLAGS) -o $@ so_long.c so_long_utils.c $(LIBRARY) $(LDFLAGS)
+$(EXECUTABLE): $(LIBRARY) $(SOURCE)
+	$(CC) $(CFLAGS) -o $@ $(SOURCE) $(LIBRARY) $(LDFLAGS)
 
 # 라이브러리 파일 생성 타겟
 $(LIBRARY):

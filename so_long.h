@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/06 20:23:42 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 11:38:24 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,21 @@ typedef struct img_pack {
 typedef struct map_box {
 	int		width;
 	int		height;
+	int		flag_e;
+	int		flag_p;
+	int		flag_c;
 	char	**map;
 }	t_map;
 
-void 	exit_program();
+void	exit_program(void);
 void	exit_hook(int exit_value);
+void	check_component(t_map *mapbox);
+void	set_map_length(t_map *mapbox, char *map_path);
+void	set_mapbox_size(t_map *mapbox, char *map_path);
+void	set_mapbox_map(t_map *mapbox, char *map_path);
+void	check_reptition(t_map *mapbox);
 int		my_key_hook(int keycode);
 int		open_map(char *map_path);
 size_t	ft_maplen(const char *s);
+
 #endif
