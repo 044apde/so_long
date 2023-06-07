@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/06 20:23:24 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 10:38:27 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,12 @@ void	set_mapbox_map(t_map *mapbox, char *map_path)
 	mapbox->map = (char **)malloc(sizeof(char) * mapbox->height);
 	if (mapbox->map == NULL)
 		exit_program();
-	ft_printf("height: %d\n", mapbox->height);
 	while (++h < mapbox->height)
 	{
-		mapbox->map[h] = (char *)malloc(sizeof(char) * mapbox->width);
-		if (mapbox->map[h] == NULL)
-			exit_program();
 		buffer = get_next_line(fd);
 		mapbox->map[h] = ft_strdup(buffer);
 		if (mapbox->map[h] == NULL)
 			exit_program();
-		printf("%s", mapbox->map[h]);
 	}
 }
 
@@ -89,6 +84,32 @@ t_map	*parse_map(char *map_name)
 	set_mapbox_size(mapbox, map_path);
 	set_mapbox_map(mapbox, map_path);
 	return (mapbox);
+}
+
+void	check_component(t_map *mapbox)
+{
+	int		h;
+	int		w;
+	char	*allowed_component;
+
+	h = -1;
+	allowed_component = "01CEP";
+	while(++h < mapbox->height)
+	{
+		w = -1;
+		while(++w < mapbox->width)
+		{
+			if(ft_strchr(allowed_component, mapbox->map[h][w]) == 0)
+			{
+				ft_printf("Error! map contains prohibited components.\n");
+			}
+		}
+	}
+}
+
+void	check_map(t_map *mapbox)
+{
+	check_component(mapbox);
 }
 
 int	main(int ac, char **ag)
