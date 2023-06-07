@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:34:59 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 11:49:08 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 16:08:04 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,27 @@ void	set_mapbox_map(t_map *mapbox, char *map_path)
 
 void	check_mapname(char *map_name)
 {
-	
+	int	len;
+
+	len = ft_strlen(map_name);
+	if (len < 4)
+	{
+		ft_printf("Error! map file name is so short");
+		exit(1);
+	}
+	if (map_name[len - 1] != 'r')
+	{
+		ft_printf("Error! invalid extension name. Use '.ber'\n");
+		exit(1);
+	}
+	if (map_name[len - 2] != 'e')
+	{
+		ft_printf("Error! invalid extension name. Use '.ber'\n");
+		exit(1);
+	}
+	if (map_name[len - 3] != 'b')
+	{
+		ft_printf("Error! invalid extension name. Use '.ber'\n");
+		exit(1);
+	}
 }

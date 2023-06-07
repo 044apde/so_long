@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:28:35 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 11:50:05 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 16:07:46 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,37 @@ void	check_component(t_map *mapbox)
 	}
 }
 
-void	check_wall(t_map *map_box)
+void	check_wall(char *mapline)
 {
+	while (*mapline != '\n' && *mapline != '\0')
+	{
+		if (*mapline != '1')
+		{
+			ft_printf("Error! map edge is pierced.\n");
+			exit(1);
+		}
+		mapline++;
+	}
+}
+
+void	check_map_surround(t_map *mapbox)
+{
+	int	h;
+
+	h = -1;
+	check_wall(mapbox->map[0]);
+	check_wall(mapbox->map[mapbox->height - 1]);
+	while (++h < mapbox->height)
+	{
+		if (mapbox->map[h][0] != '1' || \
+		mapbox->map[h][mapbox->width - 1] != '1')
+		{
+			ft_printf("%c", mapbox->map[h][0]);
+			ft_printf("%c", mapbox->map[h][mapbox->height - 1]);
+			ft_printf("Error! map edge is pierced.\n");
+			exit(1);
+		}
+	}
 }
 
 void	check_path_to_end(t_map *mapbox)

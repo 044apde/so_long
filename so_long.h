@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 11:38:24 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 13:06:13 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ void	check_component(t_map *mapbox);
 void	set_map_length(t_map *mapbox, char *map_path);
 void	set_mapbox_size(t_map *mapbox, char *map_path);
 void	set_mapbox_map(t_map *mapbox, char *map_path);
+void	check_map_surround(t_map *mapbox);
 void	check_reptition(t_map *mapbox);
+void	check_path_to_end(t_map *mapbox);
+void	check_mapname(char *map_name);
 int		my_key_hook(int keycode);
 int		open_map(char *map_path);
 size_t	ft_maplen(const char *s);
