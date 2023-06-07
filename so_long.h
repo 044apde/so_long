@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 21:28:20 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 21:45:57 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ typedef struct s_map_coordinate {
 typedef struct s_player_position {
 	int	x;
 	int	y;
-} t_position;
+}	t_position;
 
 typedef struct s_queue {
-	t_position	**p_position;
+	t_position	p_position[5];
 	int			front;
 	int			rear;
-} t_queue;
+}	t_queue;
 
 typedef struct s_map_box {
 	int				width;

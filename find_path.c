@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 21:25:32 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 21:28:56 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/07 21:54:42 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	find_path(t_map *mapbox)
 {
-	int		map_size;
-	t_queue	*queue;
+	t_queue	queue;
 
-	map_size = mapbox->width * mapbox->height;
-	queue = (t_queue *)malloc(sizeof(t_queue));
-	queue->p_position = (t_position **)malloc(map_size * sizeof(t_position *));
+	init_queue(&queue, mapbox);
+}
+
+static void	init_queue(t_queue *queue, t_map *mapbox)
+{
 	queue->front = 0;
 	queue->rear = 0;
 }
