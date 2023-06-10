@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 17:30:53 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/10 19:39:23 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define TRUE 1
 # define FALSE 0
-# define MAX 2048
+# define MAX 2
 
 typedef struct s_win_pack {
 	void	*mlx;
@@ -69,24 +69,25 @@ typedef struct s_map_box {
 	char			**visited;
 }	t_map;
 
-void	exit_program(void);
-void	exit_hook(int exit_value);
-void	check_component(t_map *mapbox);
-void	set_map_length(t_map *mapbox, char *map_path);
-void	set_mapbox_size(t_map *mapbox, char *map_path);
-void	set_mapbox_map(t_map *mapbox, char *map_path);
-void	set_mapbox_visited(t_map *mapbox, char *map_path);
-void	set_mapbox_point(t_map *mapbox);
-void	check_map_surround(t_map *mapbox);
-void	check_reptition(t_map *mapbox);
-void	check_mapname(char *map_name);
-void	check_path(t_map *mapbox);
-void	init_cqueue(t_cqueue *queue, t_map *mapbox);
-void	enqueue(t_cqueue *queue, int x, int y);
-int		my_key_hook(int keycode);
-int		open_map(char *map_path);
-int		is_full(t_cqueue *queue);
-int		is_empty(t_cqueue *queue);
-size_t	ft_maplen(const char *s);
+void		exit_program(void);
+void		exit_hook(int exit_value);
+void		check_component(t_map *mapbox);
+void		set_map_length(t_map *mapbox, char *map_path);
+void		set_mapbox_size(t_map *mapbox, char *map_path);
+void		set_mapbox_map(t_map *mapbox, char *map_path);
+void		set_mapbox_visited(t_map *mapbox, char *map_path);
+void		set_mapbox_point(t_map *mapbox);
+void		check_map_surround(t_map *mapbox);
+void		check_reptition(t_map *mapbox);
+void		check_mapname(char *map_name);
+void		check_path(t_map *mapbox);
+void		init_cqueue(t_cqueue *queue, t_map *mapbox);
+void		enqueue(t_cqueue *queue, int x, int y);
+int			my_key_hook(int keycode);
+int			open_map(char *map_path);
+int			is_full(t_cqueue *queue);
+int			is_empty(t_cqueue *queue);
+size_t		ft_maplen(const char *s);
+t_position	*dequeue(t_cqueue *queue);
 
 #endif
