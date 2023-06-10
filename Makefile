@@ -12,11 +12,14 @@ EXECUTABLE = so_long
 # 컴파일 소스
 SOURCE = so_long.c so_long_utils.c check_map.c parse_map.c queue.c find_path.c
 
+# 헤더 소스
+HEADER = so_long.h
+
 # 기본 타겟 (all) 설정
 all: $(EXECUTABLE)
 
 # 실행 파일 생성 타겟
-$(EXECUTABLE): $(LIBRARY) $(SOURCE)
+$(EXECUTABLE): $(LIBRARY) $(SOURCE) $(HEADER)
 	$(CC) $(CFLAGS) -o $@ $(SOURCE) $(LIBRARY) $(LDFLAGS)
 
 # 라이브러리 파일 생성 타겟
