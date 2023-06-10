@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:35:55 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 21:26:12 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/10 21:57:43 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	make_visited(t_map *mapbox)
 
 void	check_path(t_map *mapbox)
 {
+	int				x;
+	int				y;
 	t_cqueue		queue;
 	t_position		*coordinate;
 
@@ -72,8 +74,10 @@ void	check_path(t_map *mapbox)
 	enqueue(&queue, mapbox->p_x, mapbox->p_y);
 	while(is_empty(&queue) == FALSE)
 	{
-		dequeue(&queue);
-		enqueue(&queue, 2, 2);
+		coordinate = dequeue(&queue);
+		x = coordinate->x;
+		y = coordinate->y;
+		ft_printf("%d %d\n", x, y);
 	}
 	return ;
 }

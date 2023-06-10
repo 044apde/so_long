@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 21:50:28 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/10 21:56:20 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_map	*parse_map(char *map_name)
 
 	check_mapname(map_name);
 	mapbox = (t_map *)malloc(sizeof(t_map));
-	map_path = ft_strjoin("./assets/maps/", map_name);
+	map_path = ft_strjoin("./maps/", map_name);
 	if (map_path == NULL)
 		exit_program();
 	set_mapbox_size(mapbox, map_path);

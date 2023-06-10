@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:34:59 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 17:27:31 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/10 21:57:18 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	set_mapbox_map(t_map *mapbox, char *map_path)
 
 	fd = open_map(map_path);
 	h = -1;
-	mapbox->map = (char **)malloc(sizeof(char) * mapbox->height);
+	mapbox->map = (char **)malloc(sizeof(char *) * mapbox->height);
 	if (mapbox->map == NULL)
 		exit_program();
 	while (++h < mapbox->height)

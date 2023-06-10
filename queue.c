@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 21:25:32 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 19:33:33 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/10 21:57:38 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,5 @@ t_position	*dequeue(t_cqueue *queue)
 		return (NULL);
 	}
 	queue->front = (queue->front + 1) % MAX;
-	ft_printf("---\n");
-	ft_printf("%d %d\n", queue->p_position[queue->front].x, queue->p_position[queue->front].x);
 	return (&queue->p_position[queue->front]);
 }
