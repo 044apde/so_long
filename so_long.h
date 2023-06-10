@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 21:45:57 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/10 17:30:53 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 # include <errno.h>
 
 # define TRUE 1
-# define BG "grass.xpm"
+# define FALSE 0
+# define MAX 2048
 
 typedef struct s_win_pack {
 	void	*mlx;
@@ -48,11 +49,11 @@ typedef struct s_player_position {
 	int	y;
 }	t_position;
 
-typedef struct s_queue {
-	t_position	p_position[5];
+typedef struct s_circle_queue {
+	t_position	p_position[MAX];
 	int			front;
 	int			rear;
-}	t_queue;
+}	t_cqueue;
 
 typedef struct s_map_box {
 	int				width;
@@ -65,6 +66,7 @@ typedef struct s_map_box {
 	int				e_x;
 	int				e_y;
 	char			**map;
+	char			**visited;
 }	t_map;
 
 void	exit_program(void);
@@ -73,13 +75,18 @@ void	check_component(t_map *mapbox);
 void	set_map_length(t_map *mapbox, char *map_path);
 void	set_mapbox_size(t_map *mapbox, char *map_path);
 void	set_mapbox_map(t_map *mapbox, char *map_path);
+void	set_mapbox_visited(t_map *mapbox, char *map_path);
 void	set_mapbox_point(t_map *mapbox);
 void	check_map_surround(t_map *mapbox);
 void	check_reptition(t_map *mapbox);
 void	check_mapname(char *map_name);
-void	find_path(t_map *mapbox);
+void	check_path(t_map *mapbox);
+void	init_cqueue(t_cqueue *queue, t_map *mapbox);
+void	enqueue(t_cqueue *queue, int x, int y);
 int		my_key_hook(int keycode);
 int		open_map(char *map_path);
+int		is_full(t_cqueue *queue);
+int		is_empty(t_cqueue *queue);
 size_t	ft_maplen(const char *s);
 
 #endif

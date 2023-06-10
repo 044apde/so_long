@@ -10,7 +10,7 @@ LIBRARY = mlx/libmlx.a gnl/libgnl.a libft/libft.a ft_printf/libftprintf.a
 EXECUTABLE = so_long
 
 # 컴파일 소스
-SOURCE = so_long.c so_long_utils.c check_map.c parse_map.c find_path.c
+SOURCE = so_long.c so_long_utils.c check_map.c parse_map.c queue.c find_path.c
 
 # 기본 타겟 (all) 설정
 all: $(EXECUTABLE)

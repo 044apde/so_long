@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:28:35 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 16:45:17 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/10 17:31:54 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ void	check_component(t_map *mapbox)
 		w = -1;
 		while (++w < mapbox->width)
 		{
+			ft_printf("%c", mapbox->map[h][w]);
 			if (ft_strchr(allowed_component, mapbox->map[h][w]) == 0)
 			{
-				ft_printf("Error! map contains prohibited components.\n");
+				ft_printf("Error! map contains prohibited components: %c\n",  mapbox->map[h][w]);
 				exit(1);
 			}
 			if (mapbox->map[h][w] == 'E')
@@ -57,6 +58,8 @@ void	check_component(t_map *mapbox)
 				++mapbox->flag_c;
 		}
 	}
+	ft_printf("\n");
+	return ;
 }
 
 void	check_wall(char *mapline)

@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:34:59 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/07 16:52:00 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/10 17:27:31 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	set_mapbox_map(t_map *mapbox, char *map_path)
 	{
 		buffer = get_next_line(fd);
 		mapbox->map[h] = ft_strdup(buffer);
+		free(buffer);
+		buffer = NULL;
 		if (mapbox->map[h] == NULL)
 			exit_program();
 	}
@@ -116,14 +118,17 @@ void	set_mapbox_point(t_map *mapbox)
 		{
 			if (mapbox->map[h][w] == 'E')
 			{
-				mapbox->e_x = w + 1;
-				mapbox->e_y = h + 1;
+				mapbox->e_x = w;
+				mapbox->e_y = h;
 			}
 			if (mapbox->map[h][w] == 'P')
 			{
-				mapbox->p_x = w + 1;
-				mapbox->p_y = h + 1;
+				mapbox->p_x = w;
+				mapbox->p_y = h;
 			}
 		}
 	}
+	mapbox->flag_e = 0;
+	mapbox->flag_p = 0;
+	mapbox->flag_c = 0;
 }
