@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:35:55 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 17:39:21 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/10 17:54:08 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	make_visited(t_map *mapbox)
 	int	w;
 
 	h = -1;
-	mapbox->visited = (char **)malloc(mapbox->height);
+	mapbox->visited = (char **)malloc(mapbox->height * sizeof(char *));
 	if (mapbox->visited == NULL)
 		exit_program();
 	while (++h < mapbox->height)
 	{
 		w = -1;
-		mapbox->visited[h] = (char *)malloc(mapbox->width);
+		mapbox->visited[h] = (char *)malloc(mapbox->width + 1);
 		if (mapbox->visited[h] == NULL)
 		{
 			free(mapbox->visited);
@@ -64,9 +64,21 @@ void	make_visited(t_map *mapbox)
 
 void	check_path(t_map *mapbox)
 {
+	int		i;
+	int		j;
 	t_cqueue queue;
 
 	init_cqueue(&queue, mapbox);
 	make_visited(mapbox);
+	i = -1;
+	while(++i < mapbox->height)
+	{
+		j = -1;
+		while(++j < mapbox->width)
+		{
+			ft_printf("%c", mapbox->visited[i][j]);
+		}
+		write(1, "\n", 1);
+	}
 	return ;
 }
