@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 21:25:32 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/11 14:42:24 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/11 15:23:24 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,21 @@ void	init_cqueue(t_cqueue *queue, t_map *mapbox)
 int	is_empty(t_cqueue *queue)
 {
 	if (queue->front == queue->rear)
-	{
-		ft_printf("Queue is empty.\n");
 		return (TRUE);
-	}
 	return (FALSE);
 }
 
 int	is_full(t_cqueue *queue)
 {
 	if ((queue->rear + 1) % MAX == queue->front)
-	{
-		ft_printf("Queue is full.\n");
 		return (TRUE);
-	}
 	return (FALSE);
 }
 
 void	enqueue(t_cqueue *queue, int x, int y)
 {
 	if (is_full(queue) == TRUE)
-	{
-		ft_printf("Queue is full. abnormal accident. exit program.\n");
 		exit(1);
-	}
 	queue->rear = (queue->rear + 1) % MAX;
 	queue->p_position[queue->rear].x = x;
 	queue->p_position[queue->rear].y = y;
@@ -56,10 +47,7 @@ void	enqueue(t_cqueue *queue, int x, int y)
 t_position	*dequeue(t_cqueue *queue)
 {
 	if (is_empty(queue) == TRUE)
-	{
-		ft_printf("Queue is empty.\n");
 		return (NULL);
-	}
 	queue->front = (queue->front + 1) % MAX;
 	return (&queue->p_position[queue->front]);
 }
