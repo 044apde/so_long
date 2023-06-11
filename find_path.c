@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:35:55 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 21:57:43 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/11 15:20:11 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	make_visited(t_map *mapbox)
 	while (++h < mapbox->height)
 	{
 		w = -1;
-		mapbox->visited[h] = (char *)malloc(mapbox->width + 1);
+		mapbox->visited[h] = (char *)malloc(mapbox->width * sizeof(char));
 		if (mapbox->visited[h] == NULL)
 		{
 			free(mapbox->visited);
@@ -64,20 +64,32 @@ void	make_visited(t_map *mapbox)
 
 void	check_path(t_map *mapbox)
 {
-	int				x;
-	int				y;
+	int				i;
+	int				move_x;
+	int				move_y;
 	t_cqueue		queue;
 	t_position		*coordinate;
 
-	init_cqueue(&queue, mapbox);
 	make_visited(mapbox);
-	enqueue(&queue, mapbox->p_x, mapbox->p_y);
+	init_cqueue(&queue, mapbox);
 	while(is_empty(&queue) == FALSE)
 	{
+		i = -1;
 		coordinate = dequeue(&queue);
-		x = coordinate->x;
-		y = coordinate->y;
-		ft_printf("%d %d\n", x, y);
+		if (mapbox->map[coordinate->y][coordinate->x] == 'E')
+			return ;
+		while (++i < 4)
+		{
+			move_x = move_horizontally(i) + coordinate->x;
+			move_y = move_vertically(i) + coordinate->y;
+			if(move_x <= 0 || move_y <= 0 || move_x >= mapbox->width - 1 \
+				|| move_y >= mapbox->height - 1 || mapbox->map[move_y][move_x] == '1' \
+					|| mapbox->visited[move_y][move_x] == 'Y')
+				continue;
+			enqueue(&queue, move_x, move_y);
+			mapbox->visited[move_y][move_x] = 'Y';
+		}
 	}
-	return ;
+	ft_printf("Error! There is no path to Exit.\n");
+	exit(1);
 }

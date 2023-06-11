@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 21:25:32 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 21:57:38 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/11 14:42:24 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,29 @@
 void	init_cqueue(t_cqueue *queue, t_map *mapbox)
 {
 	queue->front = 0;
-	ft_printf("init queue front: %d\n", queue->front);
 	queue->rear = 0;
-	ft_printf("init queue rear: %d\n", queue->rear);
+	enqueue(queue, mapbox->p_x, mapbox->p_y);
+	mapbox->visited[mapbox->p_x][mapbox->p_y] = 'Y';
 	return ;
 }
 
 int	is_empty(t_cqueue *queue)
 {
 	if (queue->front == queue->rear)
+	{
+		ft_printf("Queue is empty.\n");
 		return (TRUE);
+	}
 	return (FALSE);
 }
 
 int	is_full(t_cqueue *queue)
 {
 	if ((queue->rear + 1) % MAX == queue->front)
+	{
+		ft_printf("Queue is full.\n");
 		return (TRUE);
+	}
 	return (FALSE);
 }
 
