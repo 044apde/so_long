@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:35:55 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/11 15:22:59 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/11 15:33:35 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,39 +57,36 @@ void	make_visited(t_map *mapbox)
 			mapbox->visited = NULL;
 			exit_program();
 		}
-		while(++w < mapbox->width)
+		while (++w < mapbox->width)
 			mapbox->visited[h][w] = 'N';
 	}
 }
 
-void	check_path(t_map *mapbox)
+void	check_path(t_map *mb)
 {
 	int				i;
-	int				move_x;
-	int				move_y;
+	int				m_x;
+	int				m_y;
 	t_cqueue		queue;
 	t_position		*coordinate;
 
-	make_visited(mapbox);
-	init_cqueue(&queue, mapbox);
-	while(is_empty(&queue) == FALSE)
+	make_visited(mb);
+	init_cqueue(&queue, mb);
+	while (is_empty(&queue) == FALSE)
 	{
 		i = -1;
 		coordinate = dequeue(&queue);
-		if (mapbox->map[coordinate->y][coordinate->x] == 'E')
+		if (mb->map[coordinate->y][coordinate->x] == 'E')
 			return ;
 		while (++i < 4)
 		{
-			move_x = move_horizontally(i) + coordinate->x;
-			move_y = move_vertically(i) + coordinate->y;
-			if(move_x <= 0 || move_y <= 0 || move_x >= mapbox->width - 1 \
-				|| move_y >= mapbox->height - 1 || mapbox->map[move_y][move_x] == '1' \
-					|| mapbox->visited[move_y][move_x] == 'Y')
-				continue;
-			enqueue(&queue, move_x, move_y);
-			mapbox->visited[move_y][move_x] = 'Y';
+			m_x = move_horizontally(i) + coordinate->x;
+			m_y = move_vertically(i) + coordinate->y;
+			if (m_x <= 0 || m_y <= 0 || m_x > mb->width || m_y > mb->height || mb->map[m_y][m_x] == '1' || mb->visited[m_y][m_x] == 'Y')
+				continue ;
+			enqueue(&queue, m_x, m_y);
+			mb->visited[m_y][m_x] = 'Y';
 		}
 	}
-	ft_printf("Error! There is no path to Exit.\n");
-	exit(1);
+	ft_printf("no path.\n");
 }
