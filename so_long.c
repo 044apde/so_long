@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 21:56:20 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/11 15:47:30 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ void	check_map(t_map *mapbox)
 	check_component(mapbox);
 	check_reptition(mapbox);
 	check_map_surround(mapbox);
-	check_path(mapbox);
+	if (check_path(mapbox) == FALSE)
+	{
+		ft_printf("Error! there is no path.\n");
+		exit(1);
+	}
 }
 
 int	main(int ac, char **ag)

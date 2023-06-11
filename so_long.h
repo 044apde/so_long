@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/11 14:05:42 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/11 15:45:59 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ void		set_mapbox_point(t_map *mapbox);
 void		check_map_surround(t_map *mapbox);
 void		check_reptition(t_map *mapbox);
 void		check_mapname(char *map_name);
-void		check_path(t_map *mapbox);
 void		init_cqueue(t_cqueue *queue, t_map *mapbox);
-void		enqueue(t_cqueue *queue, int x, int y);
+void		enqueue(t_cqueue *queue, int x, int y, t_map *mapbox);
+int			check_path(t_map *mapbox);
 int			my_key_hook(int keycode);
 int			open_map(char *map_path);
 int			is_full(t_cqueue *queue);
