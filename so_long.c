@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 20:04:43 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 20:41:49 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,11 @@ int	main(int ac, char **ag)
 		mapbox = parse_map(ag[1]);
 		check_map(mapbox);
 		graphic.mlx = mlx_init();
-		graphic.win = mlx_new_window(graphic.mlx, 1280, 1280, "SO_LONG..!");
+		graphic.win = mlx_new_window(graphic.mlx, mapbox->height * 64, \
+			mapbox->width * 64, "SO_LONG..!");
 
-		// 이미지 렌더링
-		alloacte_imgs(&imgbox);
-		choose_path(&imgbox);
-		set_width_height(&imgbox);
-		make_img_from_xpm(&imgbox, &graphic);
+		// 이미지 만들기
+		make_images(&imgbox, &graphic);
 
 		// 이미지 렌더링 루프
 		mlx_loop(graphic.mlx);
