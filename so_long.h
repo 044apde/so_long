@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 15:21:33 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 19:04:10 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,14 @@ typedef struct s_map_box {
 	char			**map;
 	char			**visited;
 }	t_map;
+
+typedef struct s_img_box {
+	t_image	img_background;
+	t_image	img_player;
+	t_image	img_wall;
+	t_image	img_collectible;
+	t_image	img_exit;
+}	t_imgbox;
 
 void		exit_program(void);
 void		exit_hook(int exit_value);
