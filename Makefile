@@ -10,7 +10,7 @@ LIBRARY = mlx/libmlx.a gnl/libgnl.a libft/libft.a ft_printf/libftprintf.a
 EXECUTABLE = so_long
 
 # 컴파일 소스
-SOURCE = so_long.c so_long_utils.c check_map.c parse_map.c queue.c find_path.c image.c
+SOURCE = so_long.c so_long_utils.c check_map.c parse_map.c queue.c find_path.c image.c key_hooks.c
 
 # 헤더 소스
 HEADER = so_long.h

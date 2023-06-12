@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 20:41:49 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 22:20:34 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ int	main(int ac, char **ag)
 
 		// 이미지 만들기
 		make_images(&imgbox, &graphic);
+
+		// 키보드 훅
+		mlx_key_hook(graphic.win, key_hook, &graphic);
 
 		// 이미지 렌더링 루프
 		mlx_loop(graphic.mlx);
