@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/11 15:45:59 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 15:21:33 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_win_pack {
 
 typedef struct s_img_pack {
 	void	*img;
-	char	*relative_path;
+	char	*path;
 	int		w;
 	int		h;
 }	t_image;

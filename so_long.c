@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 15:02:24 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 15:58:01 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,25 @@ int	main(int ac, char **ag)
 	int			fd;
 	t_map		*mapbox;
 	t_graphic	graphic;
+	t_image		*img;
 
 	if (ac == 2)
 	{
 		mapbox = parse_map(ag[1]);
 		check_map(mapbox);
 		graphic.mlx = mlx_init();
+		graphic.win = mlx_new_window(graphic.mlx, 1280, 1280, "SO_LONG..!");
+		
+		// 이미지 렌더링 테스트
+		img = (t_image *)malloc(sizeof(t_image) * 1);
+		img->path = "assets/background.xpm";
+		img->w = 64;
+		img->h = 64;
+		img->img = mlx_xpm_file_to_image(graphic.mlx, img->path, &img->w, &img->h);
+		mlx_put_image_to_window(graphic.mlx, graphic.win, img->img, 0, 0);
+
+		// 이미지 렌더링 루프
+		mlx_loop(graphic.mlx);
 	}
 	else
 		ft_printf("Error! require one map file.\n");
