@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 20:08:36 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 20:46:28 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define TRUE 1
 # define FALSE 0
-# define MAX 2048
+# define MAX 1200
 
 typedef struct s_win_pack {
 	void	*mlx;
