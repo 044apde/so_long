@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/11 15:47:30 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 15:02:24 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,15 @@ void	check_map(t_map *mapbox)
 
 int	main(int ac, char **ag)
 {
-	int		fd;
-	t_map	*mapbox;
+	int			fd;
+	t_map		*mapbox;
+	t_graphic	graphic;
 
 	if (ac == 2)
 	{
 		mapbox = parse_map(ag[1]);
 		check_map(mapbox);
+		graphic.mlx = mlx_init();
 	}
 	else
 		ft_printf("Error! require one map file.\n");
