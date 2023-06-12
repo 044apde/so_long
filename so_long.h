@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 19:04:10 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 20:02:28 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ typedef struct s_map_box {
 }	t_map;
 
 typedef struct s_img_box {
-	t_image	img_background;
-	t_image	img_player;
-	t_image	img_wall;
-	t_image	img_collectible;
-	t_image	img_exit;
+	t_image	*img_background;
+	t_image	*img_player;
+	t_image	*img_wall;
+	t_image	*img_collectible;
+	t_image	*img_exit;
 }	t_imgbox;
 
 void		exit_program(void);
@@ -97,5 +97,12 @@ int			is_full(t_cqueue *queue);
 int			is_empty(t_cqueue *queue);
 size_t		ft_maplen(const char *s);
 t_position	*dequeue(t_cqueue *queue);
+
+// render.c
+void		alloacte_imgs(t_imgbox *imgbox);
+void		choose_path(t_imgbox *imgbox);
+void		set_width_height(t_imgbox *imgbox);
+void		make_img_from_xpm(t_imgbox *imgbox, t_graphic *graphic);
+void		put_image_to_window(t_imgbox *imgbox, t_graphic *graphic);
 
 #endif
