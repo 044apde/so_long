@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:34:59 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 20:17:41 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 20:29:18 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,27 @@
 void	set_map_length(t_map *mapbox, char *map_path)
 {
 	int		fd;
-	int		width;
-	int		height;
 	char	*buffer;
 
 	fd = open_map(map_path);
-	width = 0;
-	height = 0;
+	mapbox->width = 0;
+	mapbox->height = 0;
 	while (TRUE)
 	{
 		buffer = get_next_line(fd);
 		if (buffer == NULL)
 			break ;
-		if (width == 0)
-			width = ft_maplen(buffer);
-		else if (width != ft_maplen(buffer))
+		if (mapbox->width == 0)
+			mapbox->width = ft_maplen(buffer);
+		else if (mapbox->width != ft_maplen(buffer))
 		{
 			ft_printf("Error! map is not rectangle.\n");
 			exit(1);
+		}
 		free(buffer);
 		buffer = NULL;
-		height++;
+		mapbox->height++;
 	}
-	mapbox->width = width;
-	mapbox->height = height;
 	close(fd);
 }
 
