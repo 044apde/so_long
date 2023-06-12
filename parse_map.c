@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:34:59 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/10 21:57:18 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 16:02:52 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ void	set_mapbox_size(t_map *mapbox, char *map_path)
 	if (mapbox->width == 0 || mapbox->height == 0)
 	{
 		ft_printf("Error! map file is empty.\n");
+		exit(1);
+	}
+	if (mapbox->width > 20 || mapbox->height > 20)
+	{
+		ft_printf("Error! map file is so big.\n");
 		exit(1);
 	}
 	close(fd);
