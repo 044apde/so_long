@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 15:58:01 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 18:00:33 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ int	main(int ac, char **ag)
 	t_map		*mapbox;
 	t_graphic	graphic;
 	t_image		*img;
+	t_image		*img2;
+	t_image		*colletible;
+	t_image		*wall;
+	t_image		*exit;
 
 	if (ac == 2)
 	{
@@ -61,6 +65,38 @@ int	main(int ac, char **ag)
 		img->h = 64;
 		img->img = mlx_xpm_file_to_image(graphic.mlx, img->path, &img->w, &img->h);
 		mlx_put_image_to_window(graphic.mlx, graphic.win, img->img, 0, 0);
+
+		// 이미지 렌더링 테스트2
+		img2 = (t_image *)malloc(sizeof(t_image) * 1);
+		img2->path = "assets/player.xpm";
+		img2->w = 64;
+		img2->h = 64;
+		img2->img = mlx_xpm_file_to_image(graphic.mlx, img2->path, &img2->w, &img2->h);
+		mlx_put_image_to_window(graphic.mlx, graphic.win, img2->img, 64, 0);
+
+		// 이미지 렌더링 테스트3
+		colletible = (t_image *)malloc(sizeof(t_image) * 1);
+		colletible->path = "assets/collectible.xpm";
+		colletible->w = 64;
+		colletible->h = 64;
+		colletible->img = mlx_xpm_file_to_image(graphic.mlx, colletible->path, &colletible->w, &colletible->h);
+		mlx_put_image_to_window(graphic.mlx, graphic.win, colletible->img, 128, 0);
+
+		// 이미지 렌더링 테스트4
+		wall = (t_image *)malloc(sizeof(t_image) * 1);
+		wall->path = "assets/wall.xpm";
+		wall->w = 64;
+		wall->h = 64;
+		wall->img = mlx_xpm_file_to_image(graphic.mlx, wall->path, &wall->w, &wall->h);
+		mlx_put_image_to_window(graphic.mlx, graphic.win, wall->img, 192, 0);
+
+		// 이미지 렌더링 테스트4
+		exit = (t_image *)malloc(sizeof(t_image) * 1);
+		exit->path = "assets/exit.xpm";
+		exit->w = 64;
+		exit->h = 64;
+		exit->img = mlx_xpm_file_to_image(graphic.mlx, exit->path, &exit->w, &exit->h);
+		mlx_put_image_to_window(graphic.mlx, graphic.win, exit->img, 256, 0);
 
 		// 이미지 렌더링 루프
 		mlx_loop(graphic.mlx);
