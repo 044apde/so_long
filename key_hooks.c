@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:18:37 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 22:20:59 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/12 22:29:35 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	key_hook(int keycode, t_graphic *vars)
 {
-	ft_printf("Hello from key_hook!\n");
+	if (keycode == 53)
+	{
+		ft_printf("Good bye! so long...\n");
+		exit(0);
+	}
 	return (0);
 }
