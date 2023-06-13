@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 14:16:39 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 22:40:43 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	main(int ac, char **ag)
 	t_map		*mapbox;
 	t_graphic	graphic;
 	t_imgbox	imgbox;
+	t_all 		all;
 
 	if (ac == 2)
 	{
@@ -57,8 +58,11 @@ int	main(int ac, char **ag)
 		// 이미지 만들기
 		make_images(&imgbox, &graphic);
 
+		all.graphic = &graphic;
+		all.imgbox = &imgbox;
+
 		// 키보드 훅
-		mlx_key_hook(graphic.win, key_hook, &graphic);
+		mlx_key_hook(graphic.win, key_hook, &all);
 
 		// 이미지 렌더링 루프
 		mlx_loop(graphic.mlx);
