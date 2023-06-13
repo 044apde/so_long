@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 14:21:56 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 18:46:56 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void		check_component(t_map *mapbox);
 void		set_map_length(t_map *mapbox, char *map_path);
 void		set_mapbox_size(t_map *mapbox, char *map_path);
 void		set_mapbox_map(t_map *mapbox, char *map_path);
-void		set_mapbox_visited(t_map *mapbox, char *map_path);
 void		set_mapbox_point(t_map *mapbox);
 void		check_map_surround(t_map *mapbox);
 void		check_reptition(t_map *mapbox);

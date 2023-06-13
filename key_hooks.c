@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:18:37 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 18:42:58 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 18:48:27 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 void	exit_game(void)
 {
-	ft_printf("Good bye so long...\n");
-	exit(1);
+	ft_printf("Good bye so long... ;)\n");
+	exit(0);
+}
+
+void	move_render(t_graphic *graphic, t_imgbox *imgbox)
+{
+	if (graphic)
+		;
+	if (imgbox)
+		;
 }
 
 void	move_wasd(int keycode)
