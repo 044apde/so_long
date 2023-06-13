@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 22:40:43 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 22:53:30 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	main(int ac, char **ag)
 
 		all.graphic = &graphic;
 		all.imgbox = &imgbox;
+		all.mapbox = mapbox;
 
 		// 키보드 훅
 		mlx_key_hook(graphic.win, key_hook, &all);

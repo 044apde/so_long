@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 22:43:47 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 22:55:32 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct s_img_box {
 typedef struct s_graphic_imgbox {
 	t_imgbox	*imgbox;
 	t_graphic	*graphic;
+	t_map		*mapbox;
 }	t_all;
 
 void		exit_program(void);
@@ -111,7 +112,8 @@ void		make_images(t_imgbox *imgbox, t_graphic *graphic);
 
 // key_hooks.c
 int			key_hook(int keycode, t_all *all);
-void		move_wasd(int keycode, t_graphic *graphic, t_imgbox *imgbox);
+void		move_player(t_graphic *graphic, t_imgbox *imgbox, t_map *mapbox);
+void		move_wasd(int keycode, t_graphic *graphic, t_imgbox *imgbox, t_map *mapbox);
 void		exit_game(void);
 
 #endif

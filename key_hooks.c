@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:18:37 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 22:48:29 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 22:55:55 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	exit_game(void)
 	exit(0);
 }
 
-void	move_render(t_graphic *graphic, t_imgbox *imgbox)
+void	move_player(t_graphic *graphic, t_imgbox *imgbox, t_map *mapbox)
 {
 	void	*mlx;
 	void	*win;
@@ -32,7 +32,7 @@ void	move_render(t_graphic *graphic, t_imgbox *imgbox)
 	ft_printf("%p %p %p %p\n", mlx, win, imgbox, imgbox->img_background->img);
 }
 
-void	move_wasd(int keycode, t_graphic *graphic, t_imgbox *imgbox)
+void	move_wasd(int keycode, t_graphic *graphic, t_imgbox *imgbox, t_map *mapbox)
 {
 	if (keycode == 0)
 		ft_printf("LEFT\n");
@@ -42,19 +42,21 @@ void	move_wasd(int keycode, t_graphic *graphic, t_imgbox *imgbox)
 		ft_printf("RIGHT\n");
 	if (keycode == 2)
 		ft_printf("DOWN\n");
-	move_render(graphic, imgbox);
+	move_player(graphic, imgbox, mapbox);
 }
 
 int	key_hook(int keycode, t_all *all)
 {
 	t_graphic 	*graphic;
 	t_imgbox	*imgbox;
+	t_map		*mapbox;
 
 	graphic = all->graphic;
 	imgbox = all->imgbox;
+	mapbox = all->mapbox;
 	if (keycode == 53)
 		exit_game();
 	else if (keycode == 0 || keycode == 1 || keycode == 13 || keycode == 2)
-		move_wasd(keycode, graphic, imgbox);
+		move_wasd(keycode, graphic, imgbox, mapbox);
 	return (0);
 }
