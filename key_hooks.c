@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:18:37 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 14:12:38 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:16:49 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_wasd(int keycode)
 	ft_printf("Move to %d\n", keycode);
 }
 
-int	key_hook(int keycode, t_graphic *vars)
+int	key_hook(int keycode, t_graphic *vars, t_map *mapbox, t_imgbox imgbox)
 {
 	if (keycode == 53)
 		exit_game();
