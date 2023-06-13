@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/12 22:19:50 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:08:05 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,7 @@ void		make_images(t_imgbox *imgbox, t_graphic *graphic);
 
 // key_hooks.c
 int			key_hook(int keycode, t_graphic *vars);
+void		exit_game(void);
+void		move_wasd(int keycode);
 
 #endif
