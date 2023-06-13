@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:18:37 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 14:16:49 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 18:42:58 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,20 @@ void	exit_game(void)
 
 void	move_wasd(int keycode)
 {
-	ft_printf("Move to %d\n", keycode);
+	if (keycode == 0)
+		ft_printf("LEFT\n");
+	if (keycode == 1)
+		ft_printf("UP\n");
+	if (keycode == 13)
+		ft_printf("RIGHT\n");
+	if (keycode == 2)
+		ft_printf("DOWN\n");
 }
 
-int	key_hook(int keycode, t_graphic *vars, t_map *mapbox, t_imgbox imgbox)
+int	key_hook(int keycode, t_graphic *graphic)
 {
+	if (graphic)
+		;
 	if (keycode == 53)
 		exit_game();
 	else if (keycode == 0 || keycode == 1 || keycode == 13 || keycode == 2)

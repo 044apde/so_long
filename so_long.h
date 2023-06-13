@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 14:17:12 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:21:56 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int			my_key_hook(int keycode);
 int			open_map(char *map_path);
 int			is_full(t_cqueue *queue);
 int			is_empty(t_cqueue *queue);
-size_t		ft_maplen(const char *s);
+int			ft_maplen(const char *s);
 t_position	*dequeue(t_cqueue *queue);
 
 // render.c
@@ -106,7 +106,7 @@ void		make_img_from_xpm(t_imgbox *imgbox, t_graphic *graphic);
 void		make_images(t_imgbox *imgbox, t_graphic *graphic);
 
 // key_hooks.c
-int			key_hook(int keycode, t_graphic *vars, t_map *mapbox, t_imgbox imgbox);
+int			key_hook(int keycode, t_graphic *vars);
 void		exit_game(void);
 void		move_wasd(int keycode);
 

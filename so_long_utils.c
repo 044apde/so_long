@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:08:14 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 14:14:59 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:21:32 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	my_key_hook(int keycode)
 	return (0);
 }
 
-size_t	ft_maplen(const char *s)
+int	ft_maplen(const char *s)
 {
-	size_t	length;
+	int	length;
 
 	length = 0;
 	while (s[length] != 0 && s[length] != '\n')
