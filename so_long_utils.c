@@ -6,23 +6,20 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:08:14 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 14:21:32 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/14 22:03:39 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	exit_hook(int exit_value)
+void	make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, t_position *player_position)
 {
-	write(1, "EXIT PROGRAM\n", 13);
-	exit(exit_value);
-}
-
-int	my_key_hook(int keycode)
-{
-	if (keycode == 53)
-		exit_hook(0);
-	return (0);
+	all->imgbox = imgbox;
+	all->mapbox = mapbox;
+	all->player_position = player_position;
+	all->player_position->x = mapbox->p_x;
+	all->player_position->y = mapbox->p_y;
+	return ;
 }
 
 int	ft_maplen(const char *s)

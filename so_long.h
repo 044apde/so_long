@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 22:55:32 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/14 22:02:07 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,14 @@ typedef struct s_img_box {
 	t_image	*img_exit;
 }	t_imgbox;
 
-typedef struct s_graphic_imgbox {
+typedef struct s_all {
 	t_imgbox	*imgbox;
 	t_graphic	*graphic;
 	t_map		*mapbox;
+	t_position	*player_position;
 }	t_all;
 
 void		exit_program(void);
-void		exit_hook(int exit_value);
 void		check_component(t_map *mapbox);
 void		set_map_length(t_map *mapbox, char *map_path);
 void		set_mapbox_size(t_map *mapbox, char *map_path);
@@ -96,7 +96,6 @@ void		check_mapname(char *map_name);
 void		init_cqueue(t_cqueue *queue, t_map *mapbox);
 void		enqueue(t_cqueue *queue, int x, int y, t_map *mapbox);
 int			check_path(t_map *mapbox);
-int			my_key_hook(int keycode);
 int			open_map(char *map_path);
 int			is_full(t_cqueue *queue);
 int			is_empty(t_cqueue *queue);
@@ -112,8 +111,9 @@ void		make_images(t_imgbox *imgbox, t_graphic *graphic);
 
 // key_hooks.c
 int			key_hook(int keycode, t_all *all);
-void		move_player(t_graphic *graphic, t_imgbox *imgbox, t_map *mapbox);
-void		move_wasd(int keycode, t_graphic *graphic, t_imgbox *imgbox, t_map *mapbox);
+void		detect_move(int keycode, t_imgbox *imgbox, t_map *mapbox, t_position *player_position);
 void		exit_game(void);
+
+void		make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, t_position *player_position);
 
 #endif

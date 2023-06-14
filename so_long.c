@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/13 22:53:30 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/14 22:03:38 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ void	check_map(t_map *mapbox)
 
 int	main(int ac, char **ag)
 {
+	t_all 		all;
 	t_map		*mapbox;
 	t_graphic	graphic;
 	t_imgbox	imgbox;
-	t_all 		all;
+	t_position	player_position;
 
 	if (ac == 2)
 	{
@@ -58,9 +59,9 @@ int	main(int ac, char **ag)
 		// 이미지 만들기
 		make_images(&imgbox, &graphic);
 
+		// all box 만들기
+		make_all(&all, mapbox, &imgbox, &player_position);
 		all.graphic = &graphic;
-		all.imgbox = &imgbox;
-		all.mapbox = mapbox;
 
 		// 키보드 훅
 		mlx_key_hook(graphic.win, key_hook, &all);
