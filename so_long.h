@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/14 22:02:07 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/14 22:11:36 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_map_box {
 	int				p_y;
 	int				e_x;
 	int				e_y;
+	int				count_move;
 	char			**map;
 	char			**visited;
 }	t_map;
@@ -111,7 +112,7 @@ void		make_images(t_imgbox *imgbox, t_graphic *graphic);
 
 // key_hooks.c
 int			key_hook(int keycode, t_all *all);
-void		detect_move(int keycode, t_imgbox *imgbox, t_map *mapbox, t_position *player_position);
+void		detect_move(int keycode, t_all *all);
 void		exit_game(void);
 
 void		make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, t_position *player_position);

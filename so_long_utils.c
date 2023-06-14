@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:08:14 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/14 22:03:39 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/14 22:09:02 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, t_position *player_po
 	all->player_position = player_position;
 	all->player_position->x = mapbox->p_x;
 	all->player_position->y = mapbox->p_y;
+	mapbox->count_move = 0;
 	return ;
 }
 
