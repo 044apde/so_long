@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:18:37 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 17:27:27 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 22:06:55 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	move_player(t_all *all)
 	mlx_put_image_to_window(mlx, win, player, x * 64, y * 64);
 	if (all->mapbox->map[y][x] == 'E')
 	{
-		ft_printf("You win! so long...\n");
+		ft_printf("You win! you have moved :%d\n", all->mapbox->count_move);
 		exit(0);
 	}
 }

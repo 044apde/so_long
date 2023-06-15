@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 17:23:24 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 22:05:09 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,6 @@ void		make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, t_position *player_p
 void		render_background(t_all *all);
 void		render_wall(t_all *all);
 void		render_exit(t_all *all);
+void		render_collectible(t_all *all);
 
 #endif

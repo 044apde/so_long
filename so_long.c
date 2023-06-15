@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 17:23:21 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 22:04:42 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int ac, char **ag)
 		render_background(&all);
 		render_wall(&all);
 		render_exit(&all);
+		render_collectible(&all);
 
 		// 키보드 훅
 		mlx_key_hook(graphic.win, key_hook, &all);

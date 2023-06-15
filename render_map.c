@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:41:24 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 17:25:59 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 22:04:30 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,26 @@ void	render_exit(t_all *all)
 	win = all->graphic->win;
 	exit = all->imgbox->img_exit->img;
 	mlx_put_image_to_window(mlx, win, exit, mapbox->e_x * 64, mapbox->e_y * 64);
+}
+
+void	render_collectible(t_all *all)
+{
+	int		h;
+	int		w;
+	char	**map;
+	void	*mlx;
+	void	*win;
+
+	h = -1;
+	map = all->mapbox->map;
+	mlx = all->graphic->mlx;
+	win = all->graphic->win;
+	while (++h < all->mapbox->height)
+	{
+		w = -1;
+		while (++w < all->mapbox->width)
+			if (all->mapbox->map[h][w] == 'C')
+				mlx_put_image_to_window(mlx, win, \
+					all->imgbox->img_collectible->img, w * 64, h * 64);
+	}
 }
