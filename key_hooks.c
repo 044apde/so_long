@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:18:37 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/14 22:21:00 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 17:27:27 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,14 @@ void	move_player(t_all *all)
 	player = all->imgbox->img_player->img;
 	x = all->player_position->x;
 	y = all->player_position->y;
+	mlx_put_image_to_window(mlx, win, all->imgbox->img_background->img, \
+		all->player_position->old_x * 64, all->player_position->old_y * 64);
 	mlx_put_image_to_window(mlx, win, player, x * 64, y * 64);
+	if (all->mapbox->map[y][x] == 'E')
+	{
+		ft_printf("You win! so long...\n");
+		exit(0);
+	}
 }
 
 void	detect_move(int keycode, t_all *all)
@@ -58,7 +65,7 @@ void	detect_move(int keycode, t_all *all)
 	all->player_position->x = new_x;
 	all->player_position->y = new_y;
 	all->mapbox->count_move++;
-	ft_printf("%d %d %d\n", new_y, new_x, all->mapbox->count_move);
+	ft_printf("move count: %d\n", all->mapbox->count_move);
 	move_player(all);
 }
 
@@ -73,6 +80,8 @@ int	key_hook(int keycode, t_all *all)
 	imgbox = all->imgbox;
 	mapbox = all->mapbox;
 	player_position = all->player_position;
+	all->player_position->old_x = all->player_position->x;
+	all->player_position->old_y = all->player_position->y;
 	if (keycode == 53)
 		exit_game();
 	else if (keycode == 0 || keycode == 1 || keycode == 13 || keycode == 2)
