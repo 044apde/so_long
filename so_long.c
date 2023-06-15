@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 23:00:58 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 23:10:26 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int	main(int ac, char **ag)
 		all.graphic = &graphic;
 		render_init(&all);
 		mlx_key_hook(graphic.win, &key_hook, &all);
-		mlx_mouse_hook(graphic.win, &mouse_hook, &all);
 		mlx_hook(graphic.win, 17, 0, &close_program, NULL);
 		mlx_loop(graphic.mlx);
 	}

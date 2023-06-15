@@ -10,7 +10,7 @@ LIBRARY = mlx/libmlx.a gnl/libgnl.a libft/libft.a ft_printf/libftprintf.a
 EXECUTABLE = so_long
 
 # complie source
-SOURCE = so_long.c so_long_utils.c check_map.c parse_map.c queue.c find_path.c image.c key_hooks.c render_map.c mouse_hook.c
+SOURCE = so_long.c so_long_utils.c check_map.c parse_map.c queue.c find_path.c image.c key_hooks.c render_map.c
 
 # header source
 HEADER = so_long.h

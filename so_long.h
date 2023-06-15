@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 23:03:04 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 23:10:21 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 # include "mlx/mlx.h"
 # include "ft_printf/ft_printf.h"
 # include <stdlib.h>
-# include <unistd.h>
 # include <fcntl.h>
-# include <string.h>
-# include <errno.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -115,6 +112,5 @@ void		exit_game(void);
 void		make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, \
 	t_position *player_position);
 void		render_init(t_all *all);
-int			mouse_hook(int mousecode, int x, int y, t_all *all);
 
 #endif
