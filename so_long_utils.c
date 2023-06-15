@@ -6,13 +6,14 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:08:14 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/14 22:09:02 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 23:02:14 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, t_position *player_position)
+void	make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, \
+	t_position *player_position)
 {
 	all->imgbox = imgbox;
 	all->mapbox = mapbox;

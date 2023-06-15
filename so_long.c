@@ -6,11 +6,18 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 22:17:25 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 23:00:58 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	close_program(void *param)
+{
+	ft_printf("Good bye! see you later!\n");
+	exit(0);
+	return (0);
+}
 
 t_map	*parse_map(char *map_name)
 {
@@ -42,7 +49,7 @@ void	check_map(t_map *mapbox)
 
 int	main(int ac, char **ag)
 {
-	t_all 		all;
+	t_all		all;
 	t_map		*mapbox;
 	t_graphic	graphic;
 	t_imgbox	imgbox;
@@ -55,24 +62,13 @@ int	main(int ac, char **ag)
 		graphic.mlx = mlx_init();
 		graphic.win = mlx_new_window(graphic.mlx, mapbox->width * 64, \
 			mapbox->height * 64, "SO_LONG..!");
-
-		// 이미지 만들기
 		make_images(&imgbox, &graphic);
-
-		// all box 만들기
 		make_all(&all, mapbox, &imgbox, &player_position);
 		all.graphic = &graphic;
-		
-		// render
 		render_init(&all);
-
-		// 키보드 훅
-		mlx_key_hook(graphic.win, key_hook, &all);
-
-		// 마우스 훅
-		mlx_mouse_hook(graphic.win, mouse_hook, &graphic);
-
-		// 이미지 렌더링 루프
+		mlx_key_hook(graphic.win, &key_hook, &all);
+		mlx_mouse_hook(graphic.win, &mouse_hook, &all);
+		mlx_hook(graphic.win, 17, 0, &close_program, NULL);
 		mlx_loop(graphic.mlx);
 	}
 	else

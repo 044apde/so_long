@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 22:17:18 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 23:03:04 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,23 +104,17 @@ int			is_full(t_cqueue *queue);
 int			is_empty(t_cqueue *queue);
 int			ft_maplen(const char *s);
 t_position	*dequeue(t_cqueue *queue);
-
-// render.c
 void		alloacte_imgs(t_imgbox *imgbox);
 void		choose_path(t_imgbox *imgbox);
 void		set_width_height(t_imgbox *imgbox);
 void		make_img_from_xpm(t_imgbox *imgbox, t_graphic *graphic);
 void		make_images(t_imgbox *imgbox, t_graphic *graphic);
-
-// key_hooks.c
 int			key_hook(int keycode, t_all *all);
 void		detect_move(int keycode, t_all *all);
 void		exit_game(void);
-
-void		make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, t_position *player_position);
-
+void		make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, \
+	t_position *player_position);
 void		render_init(t_all *all);
-
-int			mouse_hook(int keycode, t_graphic *graphic);
+int			mouse_hook(int mousecode, int x, int y, t_all *all);
 
 #endif
