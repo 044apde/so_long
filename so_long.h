@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:02:29 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 22:05:09 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 22:17:18 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,8 @@ void		exit_game(void);
 
 void		make_all(t_all *all, t_map *mapbox, t_imgbox *imgbox, t_position *player_position);
 
-void		render_background(t_all *all);
-void		render_wall(t_all *all);
-void		render_exit(t_all *all);
-void		render_collectible(t_all *all);
+void		render_init(t_all *all);
+
+int			mouse_hook(int keycode, t_graphic *graphic);
 
 #endif

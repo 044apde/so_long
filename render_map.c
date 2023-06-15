@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:41:24 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 22:04:30 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/15 22:13:11 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,15 @@ void	render_collectible(t_all *all)
 				mlx_put_image_to_window(mlx, win, \
 					all->imgbox->img_collectible->img, w * 64, h * 64);
 	}
+}
+
+void	render_init(t_all *all)
+{
+	render_background(all);
+	render_collectible(all);
+	render_exit(all);
+	render_wall(all);
+	mlx_put_image_to_window(all->graphic->mlx, all->graphic->win, \
+		all->imgbox->img_player->img, all->mapbox->p_x * 64, \
+			all->mapbox->p_y * 64);
 }
