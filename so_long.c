@@ -6,13 +6,13 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 23:10:26 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/16 21:29:46 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	close_program(void *param)
+int	close_program(void)
 {
 	ft_printf("Good bye! see you later!\n");
 	exit(0);

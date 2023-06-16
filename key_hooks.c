@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:18:37 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 22:07:39 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/16 21:44:34 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,14 @@ void	move_player(t_all *all)
 	mlx_put_image_to_window(mlx, win, all->imgbox->img_background->img, \
 		all->player_position->old_x * 64, all->player_position->old_y * 64);
 	mlx_put_image_to_window(mlx, win, player, x * 64, y * 64);
+	if (all->mapbox->map[y][x] == 'C')
+		all->mapbox->flag_c--;
 	if (all->mapbox->map[y][x] == 'E')
 	{
-		ft_printf("You win! you have moved :%d\n", all->mapbox->count_move);
+		if (all->mapbox->flag_c == 0)
+			ft_printf("You win! you have moved :%d\n", all->mapbox->count_move);
+		else
+			ft_printf("You lose! collect all collectible..\n");
 		exit(0);
 	}
 }

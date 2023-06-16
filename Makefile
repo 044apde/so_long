@@ -2,7 +2,7 @@
 CC = cc
 
 # option for compile and link
-CFLAGS = 
+CFLAGS = -Wall -Wextra -Werror
 LDFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 # Library and exe file name
