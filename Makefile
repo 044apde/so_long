@@ -18,11 +18,11 @@ HEADER = so_long.h
 # target all
 all: $(EXECUTABLE)
 
-# 실행 파일 생성 타겟
+# make target
 $(EXECUTABLE): $(LIBRARY) $(SOURCE) $(HEADER)
 	$(CC) $(CFLAGS) -o $@ $(SOURCE) $(LIBRARY) $(LDFLAGS)
 
-# 라이브러리 파일 생성 타겟
+# make library
 $(LIBRARY):
 	$(MAKE) -C mlx
 	$(MAKE) -C gnl
