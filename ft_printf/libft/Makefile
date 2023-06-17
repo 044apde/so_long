@@ -14,10 +14,10 @@ $(NAME)     : $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 clean 		:
-	rm -f $(OBJS)
+	rm -f $(NAME)
 
 fclean		: clean
-	rm -f $(NAME)
+	rm -f $(OBJS)
 
 re			: fclean all
 
