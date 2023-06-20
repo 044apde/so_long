@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:01:03 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 16:55:19 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/20 18:19:07 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,20 @@
 void	alloacte_imgs(t_imgbox *imgbox)
 {
 	imgbox->img_background = (t_image *)malloc(sizeof(t_image) * 1);
+	if (imgbox->img_background == NULL)
+		exit_program();
 	imgbox->img_collectible = (t_image *)malloc(sizeof(t_image) * 1);
+	if (imgbox->img_collectible == NULL)
+		exit_program();
 	imgbox->img_exit = (t_image *)malloc(sizeof(t_image) * 1);
+	if (imgbox->img_exit == NULL)
+		exit_program();
 	imgbox->img_player = (t_image *)malloc(sizeof(t_image) * 1);
+	if (imgbox->img_player == NULL)
+		exit_program();
 	imgbox->img_wall = (t_image *)malloc(sizeof(t_image) * 1);
+	if (imgbox->img_wall == NULL)
+		exit_program();
 }
 
 void	choose_path(t_imgbox *imgbox)
