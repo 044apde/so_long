@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:35:55 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/15 16:58:34 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/20 18:23:05 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,7 @@ void	make_visited(t_map *mapbox)
 		w = -1;
 		mapbox->visited[h] = (char *)malloc(mapbox->width * sizeof(char));
 		if (mapbox->visited[h] == NULL)
-		{
-			free(mapbox->visited);
-			mapbox->visited = NULL;
 			exit_program();
-		}
 		while (++w < mapbox->width)
 			mapbox->visited[h][w] = 'N';
 	}
