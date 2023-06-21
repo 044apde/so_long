@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 22:18:37 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/16 21:44:34 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/21 16:38:20 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	move_player(t_all *all)
 		all->mapbox->flag_c--;
 	if (all->mapbox->map[y][x] == 'E')
 	{
-		if (all->mapbox->flag_c == 0)
+		if (all->mapbox->flag_c <= 0)
 			ft_printf("You win! you have moved :%d\n", all->mapbox->count_move);
 		else
 			ft_printf("You lose! collect all collectible..\n");
