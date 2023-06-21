@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:59:04 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/20 18:24:33 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/21 15:38:15 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_map	*parse_map(char *map_name)
 	set_mapbox_size(mapbox, map_path);
 	set_mapbox_map(mapbox, map_path);
 	set_mapbox_point(mapbox);
+	free(map_path);
 	return (mapbox);
 }
 
