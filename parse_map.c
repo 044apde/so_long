@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:34:59 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/20 18:17:49 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/21 16:34:41 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	set_map_length(t_map *mapbox, char *map_path)
 		buffer = NULL;
 		mapbox->height++;
 	}
-	close(fd);
+	if (close(fd) == -1)
+		exit_program();
 }
 
 void	set_mapbox_size(t_map *mapbox, char *map_path)
@@ -55,7 +56,8 @@ void	set_mapbox_size(t_map *mapbox, char *map_path)
 		ft_printf("Error! map file is so big.\n");
 		exit(1);
 	}
-	close(fd);
+	if (close(fd) == -1)
+		exit_program();
 }
 
 void	set_mapbox_map(t_map *mapbox, char *map_path)
@@ -78,7 +80,8 @@ void	set_mapbox_map(t_map *mapbox, char *map_path)
 		if (mapbox->map[h] == NULL)
 			exit_program();
 	}
-	close(fd);
+	if (close(fd) == -1)
+		exit_program();
 }
 
 void	check_mapname(char *map_name)

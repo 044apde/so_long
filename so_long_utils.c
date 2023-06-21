@@ -6,7 +6,7 @@
 /*   By: shikim <shikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:08:14 by shikim            #+#    #+#             */
-/*   Updated: 2023/06/16 22:05:40 by shikim           ###   ########.fr       */
+/*   Updated: 2023/06/21 16:33:38 by shikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int	open_map(char *map_path)
 
 void	exit_program(void)
 {
-	ft_printf("Error! fail to malloc.\n");
+	ft_printf("Error! fail to call system.\n");
 	exit(1);
 }
